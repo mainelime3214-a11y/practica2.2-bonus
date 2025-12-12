@@ -1,15 +1,30 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // 1. Объявляем переменные для входных данных
+        int currentBalance = 300; // Начальный счет клиента
+        int topUpAmount = 1350;   // Сумма пополнения
+
+        // 2. Объявляем параметры программы
+        int bonusThreshold = 1000;    // Порог для начисления бонуса
+        int rublesForOneBonus = 100; // За каждые 100 рублей начисляется 1 бонус
+
+        int bonusAmount = 0; // Инициализируем бонус нулем
+
+        // 3. Условный оператор: Проверяем, превысила ли сумма пополнения порог
+        if (topUpAmount > bonusThreshold) {
+            // Если превысила: рассчитываем бонус.
+            // Используем целочисленное деление для "каждых полных 100 рублей".
+            bonusAmount = topUpAmount / rublesForOneBonus;
         }
+
+        // 4. Рассчитываем итоговый счет
+        int finalBalance = currentBalance + topUpAmount + bonusAmount;
+
+        // 5. Выводим результат
+        System.out.println("Начальный счет: " + currentBalance + " руб.");
+        System.out.println("Сумма пополнения: " + topUpAmount + " руб.");
+        System.out.println("Начислено бонусных рублей: " + bonusAmount + " руб.");
+        System.out.println("Итоговый счет: " + finalBalance + " руб.");
     }
 }
